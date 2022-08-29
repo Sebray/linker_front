@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import './App.css'
+import {NotFoundPage} from './pages/NotFoundPage';
+import {LoginPage} from './pages/LoginPage'
+import {SignUpPage} from './pages/SignUpPage'
+import {Layout} from './components/Layout'
+import {OwnAccountPage} from "./pages/OwnAccountPage";
+import {UpdateAccountPage} from "./pages/UpdateAccountPage";
+import {AccountPage} from "./pages/AccountPage";
+import {Row} from "react-bootstrap";
+import {PeoplePage} from "./pages/PeoplePage";
+import {FriendsPage} from "./pages/FriendsPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<LoginPage/>}/>
+            <Route path="/account" element={<OwnAccountPage/>}/>
+            <Route path="/account/new" element={<SignUpPage/>}/>
+            <Route path="/account/update" element={<UpdateAccountPage/>}/>
+            <Route path="/account/:id" element={<AccountPage/>}/>
+            <Route path="/accounts" element={<PeoplePage/>}/>
+              <Route path="/friends" element={<FriendsPage/>}/>
+            <Route path="*" element={<NotFoundPage/>}/>
+
+          </Route>
+        </Routes>
   );
 }
 

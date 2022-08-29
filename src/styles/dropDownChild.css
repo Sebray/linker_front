@@ -1,0 +1,9 @@
+a.nav-link{
+    color: #ffffff;
+}
+a.nav-link:focus{
+    color: #dbf0ff;
+}
+div.dropdown-menu.show{
+    min-width: 100px;
+}
